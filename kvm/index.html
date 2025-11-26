@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon.ico">
+  <link rel="mask-icon" href="/assets/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"haies.cn","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
+  </script>
+
+  <meta name="description" content="在UOS V20 1070（内核4.19）上为Windows 10虚拟机配置基于VirtioFS的文件共享，确实需要一些细致的操作。下面这份教程将引导你完成主要组件的编译安装和配置。 🎯 UOS下的KVM编译安装本教程实现在 UOS V20 1070 (内核4.19) 系统上，通过编译安装 QEMU 7.2.21、libvirt 8.0.0 和 virt-manager 5.1.0，实现主机 (">
+<meta property="og:type" content="article">
+<meta property="og:title" content="kvm">
+<meta property="og:url" content="http://haies.cn/kvm/index.html">
+<meta property="og:site_name" content="一本码簿">
+<meta property="og:description" content="在UOS V20 1070（内核4.19）上为Windows 10虚拟机配置基于VirtioFS的文件共享，确实需要一些细致的操作。下面这份教程将引导你完成主要组件的编译安装和配置。 🎯 UOS下的KVM编译安装本教程实现在 UOS V20 1070 (内核4.19) 系统上，通过编译安装 QEMU 7.2.21、libvirt 8.0.0 和 virt-manager 5.1.0，实现主机 (">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-11-25T00:28:20.000Z">
+<meta property="article:modified_time" content="2025-11-25T01:30:13.729Z">
+<meta property="article:author" content="万术海">
+<meta property="article:tag" content="os">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://haies.cn/kvm/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>kvm | 一本码簿</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">一本码簿</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">众里寻码千百度，那段却在github处。</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://haies.cn/kvm/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/avatar.jpg">
+      <meta itemprop="name" content="万术海">
+      <meta itemprop="description" content="个人知识库记载">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一本码簿">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          kvm
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2025-11-25 08:28:20 / 修改时间：09:30:13" itemprop="dateCreated datePublished" datetime="2025-11-25T08:28:20+08:00">2025-11-25</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>在UOS V20 1070（内核4.19）上为Windows 10虚拟机配置基于VirtioFS的文件共享，确实需要一些细致的操作。下面这份教程将引导你完成主要组件的编译安装和配置。</p>
+<h2 id="🎯-UOS下的KVM编译安装"><a href="#🎯-UOS下的KVM编译安装" class="headerlink" title="🎯 UOS下的KVM编译安装"></a>🎯 UOS下的KVM编译安装</h2><p>本教程实现在 <strong>UOS V20 1070 (内核4.19)</strong> 系统上，通过编译安装 <strong>QEMU 7.2.21</strong>、<strong>libvirt 8.0.0</strong> 和 <strong>virt-manager 5.1.0</strong>，实现主机 (Host) UOS 与客户机 (Guest) Windows 10 之间基于 <strong>VirtioFS</strong> 驱动的高效文件共享。</p>
+<p>选择此版本组合主要是因为：</p>
+<ul>
+<li><strong>QEMU 7.2.21</strong> 是最后一个完整支持 <strong>C语言版本 virtiofsd</strong> 的QEMU稳定版。</li>
+<li><strong>libvirt 8.0.0</strong> 是默认会去寻找并使用 <strong>C版本 virtiofsd</strong> 的最高版本。</li>
+</ul>
+<p>系统自带版本的kvm版本老旧，且无法实现基于 <strong>VirtioFS</strong> 驱动的高效文件共享，编译安装能确保组件间更好的兼容性。教程会涉及升级 <strong>Python3</strong>、<strong>pyenv</strong> 和 <strong>Meson</strong> 以满足编译要求，并统一使用 <strong>阿里云镜像</strong> 加速下载，安装路径统一为 <code>/usr/local</code>。</p>
+<h2 id="📦-前期准备：环境与依赖"><a href="#📦-前期准备：环境与依赖" class="headerlink" title="📦 前期准备：环境与依赖"></a>📦 前期准备：环境与依赖</h2><p>首先，我们来配置编译环境和安装基础依赖。</p>
+<ol>
+<li><p><strong>更新系统并安装基础工具</strong><br> 确保系统为最新并安装必要的开发工具：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt upgrade -y</span><br><span class="line">sudo apt install -y wget curl git build-essential pkg-config</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>配置Python环境 (使用阿里云镜像)</strong><br> 鉴于UOS自带Python版本可能较低，我们使用 <code>pyenv</code> 安装新版Python。</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装pyenv</span></span><br><span class="line">git <span class="built_in">clone</span> https://gitee.com/mirrors/pyenv.git ~/.pyenv</span><br><span class="line"><span class="built_in">echo</span> <span class="string">'export PYENV_ROOT="$HOME/.pyenv"'</span> &gt;&gt; ~/.zshrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">'export PATH="$PYENV_ROOT/bin:$PATH"'</span> &gt;&gt; ~/.zshrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">'eval "$(pyenv init -)"'</span> &gt;&gt; ~/.zshrc</span><br><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置pyenv使用国内镜像加速Python安装</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">'export PYTHON_BUILD_MIRROR_URL="https://mirrors.aliyun.com/python/"'</span> &gt;&gt; ~/.zshrc</span><br><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br><span class="line"></span><br><span class="line"><span class="comment"># 通过pyenv安装Python 3.8.12 (此版本与QEMU 7.2.21兼容性好)</span></span><br><span class="line">pyenv install 3.8.12</span><br><span class="line">pyenv global 3.8.12</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>升级pip和安装Meson (使用阿里云镜像)</strong></p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pip config <span class="built_in">set</span> global.index-url https://mirrors.aliyun.com/pypi/simple/</span><br><span class="line">pip install --upgrade pip</span><br><span class="line">pip install meson ninja</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="🔧-组件编译与安装"><a href="#🔧-组件编译与安装" class="headerlink" title="🔧 组件编译与安装"></a>🔧 组件编译与安装</h2><p>现在，开始编译和安装三个核心组件。</p>
+<h3 id="1-编译安装-QEMU-7-2-21"><a href="#1-编译安装-QEMU-7-2-21" class="headerlink" title="1. 编译安装 QEMU 7.2.21"></a>1. 编译安装 QEMU 7.2.21</h3><p>QEMU是实际的虚拟机监控器，<code>virtiofsd</code> 也随其发布。</p>
+<ul>
+<li><p><strong>安装QEMU专属依赖</strong></p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install -y libglib2.0-dev libpixman-1-dev libcap-ng-dev libseccomp-dev \</span><br><span class="line">libfuse3-dev libattr1-dev libselinux1-dev</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>编译与安装</strong></p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~</span><br><span class="line">wget https://download.qemu.org/qemu-7.2.21.tar.xz</span><br><span class="line">tar xvf qemu-7.2.21.tar.xz</span><br><span class="line"><span class="built_in">cd</span> qemu-7.2.21</span><br><span class="line">./configure --prefix=/usr/<span class="built_in">local</span> --target-list=x86_64-softmmu \</span><br><span class="line">--<span class="built_in">enable</span>-kvm --<span class="built_in">enable</span>-spice --<span class="built_in">enable</span>-vnc --<span class="built_in">enable</span>-guest-agent \</span><br><span class="line">--<span class="built_in">enable</span>-virtfs --<span class="built_in">enable</span>-virtiofsd --<span class="built_in">enable</span>-libusb --<span class="built_in">enable</span>-usb-redir \</span><br><span class="line">--<span class="built_in">enable</span>-sdl --<span class="built_in">enable</span>-seccomp --<span class="built_in">enable</span>-numa --<span class="built_in">enable</span>-virglrenderer --<span class="built_in">enable</span>-opengl</span><br><span class="line">make -j$(nproc)</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>验证安装</strong></p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">qemu-system-x86_64 --version</span><br><span class="line">/usr/<span class="built_in">local</span>/libexec/virtiofsd --version</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="2-编译安装-libvirt-8-0-0"><a href="#2-编译安装-libvirt-8-0-0" class="headerlink" title="2. 编译安装 libvirt 8.0.0"></a>2. 编译安装 libvirt 8.0.0</h3><p>libvirt提供了管理虚拟机的API和工具链。</p>
+<ul>
+<li><p><strong>安装libvirt专属依赖</strong></p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install -y libxml2-dev libgnutls28-dev libyajl-dev libnl-3-dev \</span><br><span class="line">libnl-route-3-dev libpciaccess-dev libdevmapper-dev libudev-dev libcurl4-gnutls-dev</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>编译与安装 (使用Meson)</strong></p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~</span><br><span class="line">git <span class="built_in">clone</span> https://gitlab.com/libvirt/libvirt.git</span><br><span class="line"><span class="built_in">cd</span> libvirt</span><br><span class="line">git checkout v8.0.0</span><br><span class="line">meson setup build --prefix=/usr/<span class="built_in">local</span> -Dsystem=<span class="literal">true</span> -Ddriver_qemu=enabled -Ddriver_libvirtd=enabled -Ddriver_remote=enabled -Ddocs=disabled</span><br><span class="line"></span><br><span class="line">ninja -C build</span><br><span class="line">sudo ninja -C build install</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">'export LIBVIRT_DEFAULT_URI=qemu:///system'</span> &gt;&gt; ~/.bashrc\n</span><br><span class="line"><span class="built_in">echo</span> <span class="string">'export LIBVIRT_DEFAULT_URI=qemu:///system'</span> &gt;&gt; ~/.zshrc\n</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>配置并启动libvirt服务</strong></p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl daemon-reload</span><br><span class="line">sudo systemctl <span class="built_in">enable</span> libvirtd</span><br><span class="line">sudo systemctl start libvirtd</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="3-编译安装-virt-manager-5-1-0"><a href="#3-编译安装-virt-manager-5-1-0" class="headerlink" title="3. 编译安装 virt-manager 5.1.0"></a>3. 编译安装 virt-manager 5.1.0</h3><p>virt-manager是一个用于管理虚拟机的图形化界面。</p>
+<ul>
+<li><p><strong>安装virt-manager专属依赖</strong></p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install -y gir1.2-gtk-3.0 gir1.2-gtksource-3.0 gir1.2-vte-2.91 \</span><br><span class="line">libosinfo-1.0-dev gettext pylint pytest</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>编译与安装</strong></p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/virt-manager/virt-manager.git</span><br><span class="line"><span class="built_in">cd</span> virt-manager</span><br><span class="line">git checkout v5.1.0</span><br><span class="line">meson setup build</span><br><span class="line">meson install -C build</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="⚙️-配置VirtioFS文件共享"><a href="#⚙️-配置VirtioFS文件共享" class="headerlink" title="⚙️ 配置VirtioFS文件共享"></a>⚙️ 配置VirtioFS文件共享</h2><p>组件安装完毕，接下来配置VirtioFS共享。</p>
+<ol>
+<li><p><strong>设置用户权限</strong><br> 将当前用户加入 <code>libvirt</code> 和 <code>kvm</code> 组，以便管理虚拟机而无须root权限：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo usermod -aG libvirt,kvm <span class="variable">$USER</span></span><br><span class="line">newgrp libvirt</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>准备共享目录</strong><br> 在主机上创建一个准备共享给虚拟机的目录：</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir /mnt/virtiofs_share</span><br><span class="line">sudo chown -R <span class="variable">$USER</span>:<span class="variable">$USER</span> /mnt/virtiofs_share</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>配置虚拟机XML (关键步骤)</strong><br> 使用 <code>virsh edit [你的虚拟机名称]</code> 编辑Windows 10虚拟机的配置。</p>
+<ul>
+<li><p><strong>关键点</strong>：在 <code>&lt;devices&gt;</code> 部分添加文件系统设备，并<strong>必须通过 <code>&lt;binary path=&quot;...&quot;&gt;</code> 显式指定C版 <code>virtiofsd</code> 的路径</strong>。这是解决libvirt可能找不到正确 <code>virtiofsd</code> 的关键。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">domain</span> <span class="attr">type</span>=<span class="string">'kvm'</span>&gt;</span></span><br><span class="line">  ... </span><br><span class="line">  <span class="tag">&lt;<span class="name">devices</span>&gt;</span></span><br><span class="line">    ... </span><br><span class="line">    <span class="comment">&lt;!-- 添加VirtioFS文件系统设备 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">filesystem</span> <span class="attr">type</span>=<span class="string">'mount'</span> <span class="attr">accessmode</span>=<span class="string">'passthrough'</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">driver</span> <span class="attr">type</span>=<span class="string">'virtiofs'</span>/&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- 显式指定C版virtiofsd路径 --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">binary</span> <span class="attr">path</span>=<span class="string">'/usr/local/libexec/virtiofsd'</span>/&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">source</span> <span class="attr">dir</span>=<span class="string">'/mnt/virtiofs_share'</span>/&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">target</span> <span class="attr">dir</span>=<span class="string">'vm_share'</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">filesystem</span>&gt;</span></span><br><span class="line">    ... </span><br><span class="line">  <span class="tag">&lt;/<span class="name">devices</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">domain</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><em>注意*</em>：根据实践，在 <code>qemu.conf</code> 中配置 <code>virtiofsd_path</code> 可能无效，因此直接在虚拟机XML中指定驱动位置是更可靠的方法。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Windows 10虚拟机驱动安装</strong><br> 要让Windows 10识别VirtioFS共享，需安装驱动。</p>
+<ul>
+<li>从 <a href="https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso" target="_blank" rel="noopener">Fedora仓库</a> 下载最新的 <code>virtio-win.iso</code>。</li>
+<li>在virt-manager中，将 <code>virtio-win.iso</code> 挂载到Windows 10虚拟机的CD-ROM。</li>
+<li>在Windows虚拟机中，安装ISO根目录下的 <code>virtio-win-gt-x64.msi</code>，或通过设备管理器为未知设备手动安装 <code>virtio-fs</code> 驱动。</li>
+<li>驱动安装后，在Windows文件资源管理器的地址栏输入 <code>\\virtiofs\vm_share</code> 访问共享目录，或通过”映射网络驱动器”使用此路径。</li>
+</ul>
+</li>
+</ol>
+<h2 id="💡-故障排除小贴士"><a href="#💡-故障排除小贴士" class="headerlink" title="💡 故障排除小贴士"></a>💡 故障排除小贴士</h2><ul>
+<li><p><strong>权限问题</strong>：确保 <code>/usr/local/libexec/virtiofsd</code> 对 <code>libvirt-qemu</code> 用户可执行，且共享目录有相应权限。</p>
+</li>
+<li><p><strong>libvirt服务</strong>：修改配置或XML后，记得重启 <code>sudo systemctl restart libvirtd</code>。</p>
+</li>
+<li><p><strong>驱动问题</strong>：确保Windows虚拟机正确安装了 <code>virtio-fs</code> 驱动。</p>
+</li>
+<li><p><strong>依赖排查与解决</strong></p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ldd $(<span class="built_in">which</span> qemu-system-x86_64) | grep glib</span><br><span class="line">readelf -d ./build/qemu-system-x86_64 | grep RPATH</span><br><span class="line">sudo patchelf --<span class="built_in">set</span>-rpath <span class="string">"/opt/glib-2.87/lib/x86_64-linux-gnu:/opt/libgcrypt-1.10/lib"</span> /usr/<span class="built_in">local</span>/bin/qemu-system-x86_64</span><br><span class="line">./configure LDFLAGS=<span class="string">"-Wl,-rpath,/opt/glib-2.87/lib/x86_64-linux-gnu:/opt/libgcrypt-1.10/lib"</span> --target-list=x86_64-softmmu \\n    --<span class="built_in">enable</span>-kvm --<span class="built_in">enable</span>-spice --<span class="built_in">enable</span>-vnc --<span class="built_in">enable</span>-guest-agent \\n    --<span class="built_in">enable</span>-virtfs --<span class="built_in">enable</span>-libusb --<span class="built_in">enable</span>-usb-redir \\n    --<span class="built_in">enable</span>-sdl --<span class="built_in">enable</span>-seccomp --<span class="built_in">enable</span>-numa --<span class="built_in">enable</span>-virglrenderer --<span class="built_in">enable</span>-opengl</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/os/" rel="tag"># os</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/mac/" rel="prev" title="mac">
+      <i class="fa fa-chevron-left"></i> mac
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#🎯-UOS下的KVM编译安装"><span class="nav-number">1.</span> <span class="nav-text">🎯 UOS下的KVM编译安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#📦-前期准备：环境与依赖"><span class="nav-number">2.</span> <span class="nav-text">📦 前期准备：环境与依赖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🔧-组件编译与安装"><span class="nav-number">3.</span> <span class="nav-text">🔧 组件编译与安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-编译安装-QEMU-7-2-21"><span class="nav-number">3.1.</span> <span class="nav-text">1. 编译安装 QEMU 7.2.21</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-编译安装-libvirt-8-0-0"><span class="nav-number">3.2.</span> <span class="nav-text">2. 编译安装 libvirt 8.0.0</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-编译安装-virt-manager-5-1-0"><span class="nav-number">3.3.</span> <span class="nav-text">3. 编译安装 virt-manager 5.1.0</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#⚙️-配置VirtioFS文件共享"><span class="nav-number">4.</span> <span class="nav-text">⚙️ 配置VirtioFS文件共享</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#💡-故障排除小贴士"><span class="nav-number">5.</span> <span class="nav-text">💡 故障排除小贴士</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="万术海"
+      src="/assets/avatar.jpg">
+  <p class="site-author-name" itemprop="name">万术海</p>
+  <div class="site-description" itemprop="description">个人知识库记载</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/haies" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;haies" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/imkv" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;imkv" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/assets/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">浙ICP备15009661号 </a>
+      <img src="/assets/beian.png" style="display: inline-block;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010602002478" rel="noopener" target="_blank">浙公网安备33010602002478号 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">万术海</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

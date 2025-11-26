@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon.ico">
+  <link rel="mask-icon" href="/assets/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"haies.cn","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
+  </script>
+
+  <meta name="description" content="生成密钥 ssh-keygen -t rsa -C “username@email.com”  添加本地仓库到github git init git remote add origin git@github.com:bxxfighting&#x2F;NowToDo.git git branch -u origin&#x2F;master git pull  忽略已提交文件 先用如下命令:  git rm -r --c">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git">
+<meta property="og:url" content="http://haies.cn/git/index.html">
+<meta property="og:site_name" content="一本码簿">
+<meta property="og:description" content="生成密钥 ssh-keygen -t rsa -C “username@email.com”  添加本地仓库到github git init git remote add origin git@github.com:bxxfighting&#x2F;NowToDo.git git branch -u origin&#x2F;master git pull  忽略已提交文件 先用如下命令:  git rm -r --c">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://haies.cn/assets/img20170413161611558.png">
+<meta property="article:published_time" content="2017-04-13T08:49:50.000Z">
+<meta property="article:modified_time" content="2025-07-16T09:22:54.880Z">
+<meta property="article:author" content="万术海">
+<meta property="article:tag" content="git">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://haies.cn/assets/img20170413161611558.png">
+
+<link rel="canonical" href="http://haies.cn/git/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>git | 一本码簿</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">一本码簿</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">众里寻码千百度，那段却在github处。</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://haies.cn/git/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/avatar.jpg">
+      <meta itemprop="name" content="万术海">
+      <meta itemprop="description" content="个人知识库记载">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一本码簿">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          git
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-04-13 16:49:50" itemprop="dateCreated datePublished" datetime="2017-04-13T16:49:50+08:00">2017-04-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-07-16 17:22:54" itemprop="dateModified" datetime="2025-07-16T17:22:54+08:00">2025-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/learn/" itemprop="url" rel="index"><span itemprop="name">learn</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="生成密钥"><a href="#生成密钥" class="headerlink" title="生成密钥"></a>生成密钥</h2><blockquote>
+<p><strong>ssh-keygen -t rsa -C “<a href="mailto:username@email.com">username@email.com</a>”</strong></p>
+</blockquote>
+<h2 id="添加本地仓库到github"><a href="#添加本地仓库到github" class="headerlink" title="添加本地仓库到github"></a>添加本地仓库到github</h2><ol>
+<li>git init</li>
+<li>git remote add origin <a href="mailto:git@github.com">git@github.com</a>:bxxfighting/NowToDo.git</li>
+<li>git branch -u origin/master</li>
+<li>git pull</li>
+</ol>
+<h2 id="忽略已提交文件"><a href="#忽略已提交文件" class="headerlink" title="忽略已提交文件"></a>忽略已提交文件</h2><ol>
+<li>先用如下命令:  <code>git rm -r --cached filename</code></li>
+<li>再更新.gitignore文件忽略相关文件</li>
+</ol>
+<h2 id="创建git使用步骤"><a href="#创建git使用步骤" class="headerlink" title="创建git使用步骤"></a>创建git使用步骤</h2><ol>
+<li>生成ssh key： git bash下运行 <strong>ssh-keygen -t rsa -C”username”</strong>,然后三个回车，密码为空，上传用户文件夹下的公钥 <strong>id_rsa.pub</strong> 到服务器</li>
+<li>配置全局用户名 <strong>git config –global user.name “hai”</strong>、email <strong>git config –global user.email “<a href="mailto:username@email.com">username@email.com</a>“</strong></li>
+<li>配置cr、crlf转换 <strong>git config –global core.autocrlf input</strong></li>
+<li>配置safecrlf转换 <strong>git config –global core.safecrlf true</strong></li>
+<li>下载代码 <strong>git clone <a href="mailto:git@l.zjchey.com">git@l.zjchey.com</a>:code/NjqWeb.git</strong></li>
+<li>创建并切换分支 <strong>git checkout -b dev</strong></li>
+<li>建立当前本地分支dev和远程dev分支track <strong>git branch -u origin/dev</strong></li>
+<li>获取代码 <strong>git pull</strong>（相当向下箭头），提交代码 <strong>git add. git commit -m “message” git push</strong>（相当在vcs右键 commit changes）</li>
+</ol>
+<h2 id="git分支"><a href="#git分支" class="headerlink" title="git分支"></a>git分支</h2><ol>
+<li>创建分支 <strong>git branch &lt; branch_name &gt;</strong>,切换分支 <strong>git checkout &lt; branch_name &gt;</strong>,创建并切换分支 <strong>git checkout -b &lt; branch_name &gt;</strong></li>
+<li>显示本地分支 <strong>git branch</strong>,显示远程分支 <strong>git branch -r</strong>,显示本地和远程分支 <strong>git branch -a</strong></li>
+<li>获取远程分支 <strong>git pull origin &lt; branch_name &gt;</strong> 或者 <strong>git pull</strong></li>
+<li>推送到远程分支，<strong>git push origin &lt; local_branch_name &gt;:&lt; remote_branch_name &gt;</strong>,若本地分支和远程分支tracked，可简写为 <strong>git push</strong>,若 <strong>&lt; local_branch_name &gt;</strong> 为空，则删除远程分支</li>
+<li>获取远程新分支 <strong>git checkout -b &lt; local-branchname &gt; origin/ &lt; remote_branchname&gt;</strong></li>
+<li>删除本地分支 <strong>git branch -d &lt; branch_name &gt;</strong>,删除远程分支 <strong>git branch -d -r orign/&lt; branch_name &gt;</strong></li>
+<li>合并分支 <strong>git merge &lt; branch_name &gt;</strong></li>
+<li>建立当前本地分支dev和远程dev分支track <strong>git branch -u origin/dev</strong>，新建和远程dev分支tracked的本地分支 <strong>git branch –track dev origin/dev</strong></li>
+<li>查看本地分支和远程分支是否tracked <strong>git branch -vv</strong></li>
+<li>分支重命名 <strong>git branch -m oldbranch newbranch</strong></li>
+</ol>
+<h2 id="git撤销"><a href="#git撤销" class="headerlink" title="git撤销"></a>git撤销</h2><ol>
+<li>撤销add <strong>git checkout – filefullname</strong></li>
+<li>撤销commit <strong>git reset HEAD filefullname</strong><blockquote>
+<ul>
+<li><strong>git reset –mixed</strong>：此为默认方式，不带任何参数的git reset，即时这种方式，它回退到某个版本，只保留源码，回退commit和index信息</li>
+<li><strong>git reset –soft</strong>：回退到某个版本，只回退了commit的信息，不会恢复到index file一级。如果还要提交，直接commit即可</li>
+<li><strong>git reset –hard</strong>：彻底回退到某个版本，本地的源码也会变为上一个版本的内容</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<h2 id="git区图解"><a href="#git区图解" class="headerlink" title="git区图解"></a>git区图解</h2><p>  <img src="../assets/img20170413161611558.png" alt="git区"></p>
+<h2 id="git其他命令"><a href="#git其他命令" class="headerlink" title="git其他命令"></a>git其他命令</h2><ol>
+<li>创建裸库： <strong>git init --bare NjqWeb.git</strong></li>
+<li>查看本地设置 <strong>git config –list</strong></li>
+<li>work和index的比较 <strong>git diff</strong>，index和repository比较 <strong>git diff –staged</strong>，work和repository比较 <strong>git diff HEAD</strong></li>
+<li>git status中文被转义 <strong>git config –global core.quotePATH false</strong></li>
+<li>master分支仅发布不干活，dev分支仅干活不发布</li>
+</ol>
+<h2 id="git多远程仓库"><a href="#git多远程仓库" class="headerlink" title="git多远程仓库"></a>git多远程仓库</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[core]</span><br><span class="line"> repositoryformatversion = 0</span><br><span class="line"> filemode = false</span><br><span class="line"> bare = false</span><br><span class="line"> logallrefupdates = true</span><br><span class="line"> symlinks = false</span><br><span class="line"> ignorecase = true</span><br><span class="line">[remote "origin"]</span><br><span class="line"> url = git@l.zjchey.com:haies.github.io</span><br><span class="line"> url = git@git.oschina.net:haies/blog.git</span><br><span class="line"> url = git@git.coding.net:haies/blog.git</span><br><span class="line"> url = git@code.aliyun.com:haies/blog.git</span><br><span class="line"> fetch = +refs/heads/*:refs/remotes/origin/*</span><br><span class="line">[branch "master"]</span><br><span class="line"> remote = origin</span><br><span class="line"> merge = refs/heads/master</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/git/" rel="tag"># git</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/mybatis/" rel="prev" title="Mybatis">
+      <i class="fa fa-chevron-left"></i> Mybatis
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/java/" rel="next" title="Java">
+      Java <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#生成密钥"><span class="nav-number">1.</span> <span class="nav-text">生成密钥</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加本地仓库到github"><span class="nav-number">2.</span> <span class="nav-text">添加本地仓库到github</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#忽略已提交文件"><span class="nav-number">3.</span> <span class="nav-text">忽略已提交文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建git使用步骤"><span class="nav-number">4.</span> <span class="nav-text">创建git使用步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git分支"><span class="nav-number">5.</span> <span class="nav-text">git分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git撤销"><span class="nav-number">6.</span> <span class="nav-text">git撤销</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git区图解"><span class="nav-number">7.</span> <span class="nav-text">git区图解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git其他命令"><span class="nav-number">8.</span> <span class="nav-text">git其他命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git多远程仓库"><span class="nav-number">9.</span> <span class="nav-text">git多远程仓库</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="万术海"
+      src="/assets/avatar.jpg">
+  <p class="site-author-name" itemprop="name">万术海</p>
+  <div class="site-description" itemprop="description">个人知识库记载</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/haies" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;haies" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/imkv" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;imkv" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/assets/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">浙ICP备15009661号 </a>
+      <img src="/assets/beian.png" style="display: inline-block;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010602002478" rel="noopener" target="_blank">浙公网安备33010602002478号 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">万术海</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

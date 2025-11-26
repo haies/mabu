@@ -1,0 +1,1278 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon.ico">
+  <link rel="mask-icon" href="/assets/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"haies.cn","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
+  </script>
+
+  <meta name="description" content="个人知识库记载">
+<meta property="og:type" content="website">
+<meta property="og:title" content="一本码簿">
+<meta property="og:url" content="http://haies.cn/page/2/index.html">
+<meta property="og:site_name" content="一本码簿">
+<meta property="og:description" content="个人知识库记载">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="万术海">
+<meta property="article:tag" content="haies">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://haies.cn/page/2/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>一本码簿</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">一本码簿</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">众里寻码千百度，那段却在github处。</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content index posts-expand">
+            
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://haies.cn/springboot/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/avatar.jpg">
+      <meta itemprop="name" content="万术海">
+      <meta itemprop="description" content="个人知识库记载">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一本码簿">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/springboot/" class="post-title-link" itemprop="url">springboot</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-09-19 16:18:25" itemprop="dateCreated datePublished" datetime="2018-09-19T16:18:25+08:00">2018-09-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-07-16 17:22:54" itemprop="dateModified" datetime="2025-07-16T17:22:54+08:00">2025-07-16</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p>本次项目采用Springboot+Mybatis方式，使用注解式配置，增加全局异常处理，实现前端和后台参数传递过程下划线和驼峰法的自动转换。<a href="http://www.mybatis.org/generator/running/running.html" target="_blank" rel="noopener">MyBatis</a>官方没有提供基于Gradle的MyBtis Generator插件，因此沿用Maven做Build工具。</p>
+</blockquote>
+<hr>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><h3 id="application-yml关键配置"><a href="#application-yml关键配置" class="headerlink" title="application.yml关键配置"></a>application.yml关键配置</h3><p>MyBatis配置如下：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">mybatis:</span></span><br><span class="line">  <span class="attr">mapper-locations:</span> <span class="string">"classpath:mapper/*.xml"</span></span><br><span class="line">  <span class="attr">type-aliases-package:</span> <span class="string">"com.zjchey.dataManage.entity"</span></span><br><span class="line">  <span class="attr">configuration:</span></span><br><span class="line">    <span class="attr">map-underscore-to-camel-case:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>map-underscore-to-camel-case: true</code>在生产代码时将数据库中下划线命名自动转为驼峰法命名代码。</p>
+</blockquote>
+<p>Jackson配置如下：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">jackson:</span></span><br><span class="line">  <span class="attr">property-naming-strategy:</span> <span class="string">SNAKE_CASE</span></span><br><span class="line">  <span class="attr">defaultPropertyInclusion:</span> <span class="string">NON_EMPTY</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>property-naming-strategy: SNAKE_CASE</code>用于前端以application/json方式提交的POST请求的流参数转换，实现前端和后台双向自动下划线和驼峰法命名，后端接受参数的对象需要用@RequestBody修饰。<br><code>defaultPropertyInclusion: NON_EMPTY</code>用于@ResponseBody修饰的接口在将对象转为json返回参数时，如果对象属性为null，则在json中忽略该属性。</p>
+</blockquote>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/springboot/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://haies.cn/win/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/avatar.jpg">
+      <meta itemprop="name" content="万术海">
+      <meta itemprop="description" content="个人知识库记载">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一本码簿">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/win/" class="post-title-link" itemprop="url">win</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-08-08 17:32:37" itemprop="dateCreated datePublished" datetime="2018-08-08T17:32:37+08:00">2018-08-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-07-17 08:55:17" itemprop="dateModified" datetime="2025-07-17T08:55:17+08:00">2025-07-17</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="WinGet"><a href="#WinGet" class="headerlink" title="WinGet"></a><a href="https://github.com/microsoft/winget-cli" target="_blank" rel="noopener">WinGet</a></h2><h3 id="常用软件"><a href="#常用软件" class="headerlink" title="常用软件"></a>常用软件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">winget install --id voidtools.Everything -h;</span><br><span class="line">winget install --id VideoLAN.VLC -h;</span><br><span class="line">winget install --id 7zip.7zip -h;</span><br><span class="line">winget install --id Microsoft.Sysinternals.Suite -h;</span><br><span class="line">winget install --id Obsidian.Obsidian -h;</span><br><span class="line">winget install --id Google.Chrome -h;</span><br><span class="line">winget install --id Mozilla.Firefox -h;</span><br><span class="line">winget install --id Tencent.WeChat -h;</span><br><span class="line">winget install --id Alibaba.DingTalk -h;</span><br><span class="line">winget install --id Evernote.Evernote.CN -h;</span><br><span class="line">winget install --id PixPin.PixPin -h;</span><br><span class="line">winget install --id Kingsoft.WPSOffice-CN -h;</span><br><span class="line">winget install --id Baidu.BaiduNetdisk -h;</span><br><span class="line">winget install --id Tencent.QQ -h;</span><br><span class="line">winget install --id Tencent.QQMusic -h;</span><br><span class="line">winget install --id Tencent.TencentVideo -h;</span><br><span class="line">winget install --id Tencent.TencentMeeting -h;</span><br><span class="line">winget install --id AutoHotkey.AutoHotkey -h;</span><br><span class="line">winget install --id Microsoft.PowerToys -h;</span><br><span class="line">winget install --id ClashVergeRev.ClashVergeRev -h;</span><br><span class="line">winget install --id Microsoft.VisualStudioCode -i;</span><br></pre></td></tr></table></figure>
+
+<h3 id="一键安装"><a href="#一键安装" class="headerlink" title="一键安装"></a>一键安装</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Set-ExecutionPolicy Bypass -Scope Process -Force;</span><br><span class="line">irm http://haies.cn/assets/win-install.ps1 | iex；</span><br></pre></td></tr></table></figure>
+
+<h3 id="工作软件"><a href="#工作软件" class="headerlink" title="工作软件"></a>工作软件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">winget install --id OSGeo.QGIS_LTR -h;</span><br><span class="line">winget install --id RealVNC.VNCViewer -h;</span><br><span class="line">winget install --id Rufus.Rufus -h;</span><br><span class="line">winget install --id WinSCP.WinSCP -h;</span><br><span class="line">winget install --id TortoiseSVN.TortoiseSVN -h;</span><br><span class="line">winget install --id JurgenRathlev.innounp -h;</span><br><span class="line">winget install --id DBBrowserForSQLite.DBBrowserForSQLite -h;</span><br><span class="line"></span><br><span class="line">winget install --id Canonical.Ubuntu -h;</span><br><span class="line">winget install --id PremiumSoft.NavicatPremium -h;</span><br><span class="line">winget install --id JetBrains.IntelliJIDEA.Ultimate -h;</span><br><span class="line">winget install --id Microsoft.VisualStudio.Community -h;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Scoop"><a href="#Scoop" class="headerlink" title="Scoop"></a><a href="https://github.com/lukesampson/scoop" target="_blank" rel="noopener">Scoop</a></h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser;</span><br><span class="line">irm https://get.scoop.sh | iex；</span><br></pre></td></tr></table></figure>
+
+<p><code>scoop install git-with-openssh gitignore sudo busybox nodejs-lts -g</code><br><code>scoop install cmder yarn maven python -g</code></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/win/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://haies.cn/itis/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/avatar.jpg">
+      <meta itemprop="name" content="万术海">
+      <meta itemprop="description" content="个人知识库记载">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一本码簿">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/itis/" class="post-title-link" itemprop="url">ITIS</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-08-08 14:22:41" itemprop="dateCreated datePublished" datetime="2018-08-08T14:22:41+08:00">2018-08-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-07-14 16:29:58" itemprop="dateModified" datetime="2025-07-14T16:29:58+08:00">2025-07-14</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="准备材料清单"><a href="#准备材料清单" class="headerlink" title="准备材料清单"></a>准备材料清单</h2><h3 id="服务"><a href="#服务" class="headerlink" title="服务"></a>服务</h3><ul>
+<li>ZCEY ITISPR-33_服务级别管理程序-服务目录.xls</li>
+<li>ZCEY ITISPR-33_服务级别管理程序-IT服务水平协议(SLA).docx</li>
+<li>ZCEY ITISPR-33_服务级别管理程序-运营级别协议OLAS.doc</li>
+</ul>
+<h3 id="项目"><a href="#项目" class="headerlink" title="项目"></a>项目</h3><ul>
+<li>系统开发合同/开发任务单</li>
+<li>系统需求分析</li>
+<li>系统功能设计</li>
+<li>系统测试方案</li>
+<li>系统测试报告</li>
+<li>系统验收报告或功能点验收报告</li>
+<li>用户报告</li>
+</ul>
+<h3 id="运维"><a href="#运维" class="headerlink" title="运维"></a>运维</h3><ul>
+<li>ZCEY ITISPR-22_事件管理程序-运维事件汇总记录单.xlsx</li>
+<li>ZCEY ITISPR-22_事件管理程序-重大事件处理报告单.docx</li>
+</ul>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><ul>
+<li>系统变更记录</li>
+<li>系统会议记录</li>
+<li>系统巡检记录</li>
+<li>其他ITIS文件</li>
+</ul>
+<h2 id="安全服务协议"><a href="#安全服务协议" class="headerlink" title="安全服务协议"></a>安全服务协议</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/itis/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://haies.cn/epsg/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/avatar.jpg">
+      <meta itemprop="name" content="万术海">
+      <meta itemprop="description" content="个人知识库记载">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一本码簿">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/epsg/" class="post-title-link" itemprop="url">epsg</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-07-04 18:26:00" itemprop="dateCreated datePublished" datetime="2018-07-04T18:26:00+08:00">2018-07-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-07-14 16:29:58" itemprop="dateModified" datetime="2025-07-14T16:29:58+08:00">2025-07-14</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="常用坐标对应的EPSG编号"><a href="#常用坐标对应的EPSG编号" class="headerlink" title="常用坐标对应的EPSG编号"></a>常用坐标对应的EPSG编号</h2><p>cgcs2000_geo: <strong>4490</strong><br>cgcs2000_3_gk_117E: <strong>4548</strong><br>cgcs2000_3_gk_120E: <strong>4549</strong><br>cgcs2000_3_gk_123E: <strong>4550</strong><br>wgs84_geo: <strong>4326</strong><br>web_mercator_auxiliary_sphere: <strong>3875</strong><br>web_mercator(google): <strong>3785</strong></p>
+
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/epsg/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://haies.cn/postgres/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/avatar.jpg">
+      <meta itemprop="name" content="万术海">
+      <meta itemprop="description" content="个人知识库记载">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一本码簿">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/postgres/" class="post-title-link" itemprop="url">Postgres</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-08-09 12:20:50" itemprop="dateCreated datePublished" datetime="2017-08-09T12:20:50+08:00">2017-08-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-07-16 17:22:54" itemprop="dateModified" datetime="2025-07-16T17:22:54+08:00">2025-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/learn/" itemprop="url" rel="index"><span itemprop="name">learn</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="管理命令"><a href="#管理命令" class="headerlink" title="管理命令"></a>管理命令</h2><h3 id="数据库备份"><a href="#数据库备份" class="headerlink" title="数据库备份"></a>数据库备份</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">alias pgbackup&#x3D;&#39;thisFun()&#123;pg_dump -U postgres -F t -ovf &#x2F;var&#x2F;pgbak&#x2F;$1_$(date &#39;+%Y%m%d%H%M%S&#39;).tar $1&#125;;thisFun&#39;</span><br><span class="line">alias pgbak&#x3D;&#39;pg_dump -h localhost -U postgres -F t -ovf &#x2F;var&#x2F;pgbak&#x2F;njqdb.tar njqdb&#39;</span><br><span class="line">pg_dump -h localhost -U postgres -d njqwebdb &gt; &#x2F;hdc&#x2F;njqdbbak&#x2F;njqweb$(date &#39;+%Y%m%d%H%M%S&#39;).bak -v</span><br></pre></td></tr></table></figure>
+
+<h3 id="数据库恢复"><a href="#数据库恢复" class="headerlink" title="数据库恢复"></a>数据库恢复</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">alias pgrecover&#x3D;&#39;thisFun()&#123;var&#x3D;$&#123;1%%_*&#125;;var&#x3D;$&#123;var##*&#x2F;&#125;;echo $var;pg_restore -U postgres -d $&#123;var&#125; -cv $1&#125;;thisFun&#39;</span><br><span class="line">alias pgrec&#x3D;&#39;pg_restore -h localhost -U postgres -d njqdb -cv &#x2F;var&#x2F;pgbak&#x2F;njqdb.tar</span><br><span class="line">psql -h localhost -U postgres -d databasename &lt;  C:\databasename.bak</span><br></pre></td></tr></table></figure>
+
+<h3 id="Linux管理"><a href="#Linux管理" class="headerlink" title="Linux管理"></a>Linux管理</h3><ul>
+<li>登录数据库 <code>sudo psql -u postgres</code></li>
+<li>导出到表格</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">COPY (SELECT a.corp_name,a.area_code,a.entity_code,b.addr_type,b.addr_content,b.symbol_code,b.geo_addr FROM geo_entity_info as a left join geo_space_info as b on a.corp_id&#x3D;b.corp_id) TO &#39;&#x2F;mnt&#x2F;d&#x2F;a.csv&#39; WITH csv HEADER;</span><br></pre></td></tr></table></figure>
+
+<h3 id="开启模块扩展"><a href="#开启模块扩展" class="headerlink" title="开启模块扩展"></a>开启模块扩展</h3><ul>
+<li><p>创建数据库</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">create database geoTemplate;</span><br><span class="line">\c geoTemplate;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启用空间数据库模块</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">CREATE EXTENSION postgis;</span><br><span class="line">CREATE EXTENSION pgrouting;</span><br><span class="line">CREATE EXTENSION postgis_topology;</span><br><span class="line">CREATE EXTENSION fuzzystrmatch;</span><br><span class="line">CREATE EXTENSION postgis_tiger_geocoder;</span><br><span class="line">CREATE EXTENSION address_standardizer;</span><br><span class="line">CREATE EXTENSION &quot;uuid-ossp&quot;;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/postgres/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://haies.cn/linux/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/avatar.jpg">
+      <meta itemprop="name" content="万术海">
+      <meta itemprop="description" content="个人知识库记载">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一本码簿">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/linux/" class="post-title-link" itemprop="url">Linux</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-05-16 14:21:50" itemprop="dateCreated datePublished" datetime="2017-05-16T14:21:50+08:00">2017-05-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-07-16 17:26:31" itemprop="dateModified" datetime="2025-07-16T17:26:31+08:00">2025-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/learn/" itemprop="url" rel="index"><span itemprop="name">learn</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="初始安装"><a href="#初始安装" class="headerlink" title="初始安装"></a>初始安装</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sh -c "$(wget -qO- http://haies.cn/assets/install-zsh.sh)"</span><br><span class="line">sh -c "$(wget -qO- http://haies.cn/assets/apt-install.sh)"</span><br><span class="line">sh -c "$(wget -qO- http://haies.cn/assets/debian-init.sh)"</span><br><span class="line">sh -c "$(wget -qO- http://haies.cn/assets/centos-init.sh)"</span><br><span class="line">sh -c "$(wget -qO- http://haies.cn/assets/ubuntu-init.sh)"</span><br><span class="line"></span><br><span class="line">sh -c "$(wget -qO- http://haies.cn/assets/yum-install-docker.sh)"</span><br><span class="line">sh -c "$(wget -qO- http://haies.cn/assets/dns.sh)"</span><br></pre></td></tr></table></figure>
+
+<h2 id="压缩"><a href="#压缩" class="headerlink" title="压缩"></a>压缩</h2>  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">7za a -mx0 -v4g backup.7z /path/to/data</span><br><span class="line">7za a -mx0 -v4g backup.7z /path/to/*</span><br><span class="line">7za x -mx0 "backup.7z.001" -o/path/to/</span><br><span class="line"></span><br><span class="line">7za a -tzip  backup.zip /path/to/data</span><br><span class="line">7za x -tzip  backup.zip /path/to/data</span><br><span class="line"></span><br><span class="line">tar -cvpf - /path/to/folder | split -d -b 4g - backup.tar</span><br><span class="line">tar -xvpf backup.tar.00 -C /path/to/target_folder #要求分卷是纯 tar 分割（未压缩），且分卷命名连续</span><br><span class="line">cat backup.tar.* | tar -xpv  -C /path/to/folder</span><br><span class="line"></span><br><span class="line">tar -czvpf - /path/to/folder | split -d -b 4g - backup$(date +%Y%m%d).tar.gz</span><br><span class="line">cat backup.tar.gz.* | tar -xzvp  -C /path/to/folder</span><br><span class="line">gzip -t backup.tar.gz</span><br><span class="line"></span><br><span class="line">tar -cvpf nginx.tar /etc/nginx</span><br><span class="line">tar -xvpf nginx.tar -C /path/to/folder</span><br><span class="line"></span><br><span class="line">ls -l |grep ^d|awk &#123;'print $9'&#125;|xargs -t -i 7z a &#123;&#125;.7z &#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>7z mx参数<br>  <img src="../assets/img20250714141300.png" alt="7z mx参数"><br>7z 压缩方案<br>  <img src="../assets/img20250715141300.png" alt="7z 压缩方案"></p>
+</blockquote>
+<h2 id="查看系统信息"><a href="#查看系统信息" class="headerlink" title="查看系统信息"></a>查看系统信息</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">id -un</span><br><span class="line">uname -a</span><br><span class="line">lsb_release -c</span><br><span class="line">lscpu</span><br><span class="line">lshw</span><br><span class="line">cat /proc/meminfo</span><br></pre></td></tr></table></figure>
+
+<h2 id="磁盘管理"><a href="#磁盘管理" class="headerlink" title="磁盘管理"></a>磁盘管理</h2><p>查看磁盘格式：<code>lsblk -f</code><br>查看磁盘信息：<code>fdisk -l</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">mkfs.xfs -f /dev/vdb&amp;&amp;</span><br><span class="line">mkdir /hda&amp;&amp;</span><br><span class="line">mount /dev/vdb /hda&amp;&amp;</span><br><span class="line">echo /dev/vdb    /hda    xfs    defaults    0    0 &gt;&gt; /etc/fstab</span><br><span class="line"></span><br><span class="line">mkfs.ext4 -T huge -b 4096  /dev/vdb&amp;&amp;</span><br><span class="line">mkdir /hda&amp;&amp;</span><br><span class="line">mount /dev/vdb /hda&amp;&amp;</span><br><span class="line">echo /dev/vdb    /hda    ext4    defaults    0    0 &gt;&gt; /etc/fstab</span><br><span class="line"></span><br><span class="line">mkfs.ext3 -T largefile -i 4096  /dev/xvdb1&amp;&amp;</span><br><span class="line">mkdir /hda&amp;&amp;</span><br><span class="line">mount /dev/xvdb1 /hda&amp;&amp;</span><br><span class="line">echo /dev/xvdb1    /hda    ext3    defaults    0    0 &gt;&gt; /etc/fstab</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/linux/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://haies.cn/vuejs/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/avatar.jpg">
+      <meta itemprop="name" content="万术海">
+      <meta itemprop="description" content="个人知识库记载">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一本码簿">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/vuejs/" class="post-title-link" itemprop="url">vuejs</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-05-03 13:53:52" itemprop="dateCreated datePublished" datetime="2017-05-03T13:53:52+08:00">2017-05-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-07-16 17:22:54" itemprop="dateModified" datetime="2025-07-16T17:22:54+08:00">2025-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/learn/" itemprop="url" rel="index"><span itemprop="name">learn</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="系统环境"><a href="#系统环境" class="headerlink" title="系统环境"></a>系统环境</h2><p>1.安装<a href="https://nodejs.org/dist/v6.10.3/node-v6.10.3-x64.msi" target="_blank" rel="noopener">node.js</a></p>
+<p>2.安装cnpm</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -g cnpm --registry=https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+
+<p>3.安装vue-cli</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm i vue-cli</span><br></pre></td></tr></table></figure>
+
+<p>4.下载代码并进入代码目录下进行模块安装</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm i</span><br></pre></td></tr></table></figure>
+
+<h2 id="IDEA配置"><a href="#IDEA配置" class="headerlink" title="IDEA配置"></a>IDEA配置</h2><ol>
+<li>File-&gt;settings-&gt;plugins 安装 <strong>node</strong> 插件和 <strong>vue.js</strong> 插件，重启IDEA</li>
+<li>配置启动项如下图:<br><img src="../assets/img20170503140605879.png" alt="启动项配置"></li>
+</ol>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/vuejs/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://haies.cn/java/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/avatar.jpg">
+      <meta itemprop="name" content="万术海">
+      <meta itemprop="description" content="个人知识库记载">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一本码簿">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/java/" class="post-title-link" itemprop="url">Java</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-04-27 14:43:50" itemprop="dateCreated datePublished" datetime="2017-04-27T14:43:50+08:00">2017-04-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-07-14 16:29:58" itemprop="dateModified" datetime="2025-07-14T16:29:58+08:00">2025-07-14</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/code/" itemprop="url" rel="index"><span itemprop="name">code</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="获取文件夹指定类型的文件"><a href="#获取文件夹指定类型的文件" class="headerlink" title="获取文件夹指定类型的文件"></a>获取文件夹指定类型的文件</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> File[] getFilterFiles(String path, String[] suffix) &#123;</span><br><span class="line"></span><br><span class="line">    File baseFolder = <span class="keyword">new</span> File(path);</span><br><span class="line">    <span class="keyword">if</span>(!baseFolder.isDirectory())<span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">    FileFilter imageFilter = pathname -&gt; &#123;</span><br><span class="line">        String fileName = pathname.getName().toLowerCase();</span><br><span class="line">        <span class="keyword">for</span> (String s : suffix) &#123;</span><br><span class="line">            <span class="keyword">if</span> (fileName.endsWith(s.toLowerCase())) <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> baseFolder.listFiles(imageFilter);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="二维表转树Json"><a href="#二维表转树Json" class="headerlink" title="二维表转树Json"></a>二维表转树Json</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">itemType</span></span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">itemTypeTree</span> <span class="title">extetends</span> <span class="title">itemType</span></span>&#123;</span><br><span class="line">    List&lt;itemTypeTree&gt; children;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> List&lt;ItemTypeTree&gt; <span class="title">recursionNode</span><span class="params">(List&lt;ItemType&gt; list, ItemType itemTree)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(list==<span class="keyword">null</span>)<span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">if</span>(itemTree==<span class="keyword">null</span>)itemTree=<span class="keyword">new</span> ItemTypeTree();</span><br><span class="line">    <span class="keyword">return</span>  getChildNode(list,itemTree).stream()</span><br><span class="line">            .map(item -&gt; &#123;</span><br><span class="line">                <span class="keyword">if</span>(getChildNode(list,item).size()&gt;<span class="number">0</span>)&#123;</span><br><span class="line">                    item.setChildren(recursionNode(list,item));</span><br><span class="line">                &#125;</span><br><span class="line">               <span class="keyword">return</span>  item;</span><br><span class="line">            &#125;)</span><br><span class="line">            .collect(Collectors.toList());</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">private</span> List&lt;ItemTypeTree&gt; <span class="title">getChildNode</span><span class="params">(List&lt;ItemType&gt; list,ItemType itemTree)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> list.stream()</span><br><span class="line">            .filter(item -&gt; &#123;</span><br><span class="line">                <span class="keyword">if</span>(StringUtils.isBlank(itemTree.getTypecode()))&#123;</span><br><span class="line">                    <span class="keyword">return</span> StringUtils.isBlank(item.getParentcode());</span><br><span class="line">                &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">return</span> item.getParentcode().equals(itemTree.getTypecode());</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;)</span><br><span class="line">            .map(itemType -&gt; &#123;</span><br><span class="line">                ItemTypeTree itemTypeTree=<span class="keyword">new</span> ItemTypeTree();</span><br><span class="line">                BeanUtils.copyProperties(itemType,itemTypeTree);</span><br><span class="line">                <span class="keyword">return</span> itemTypeTree;</span><br><span class="line">            &#125;)</span><br><span class="line">            .collect(Collectors.toList());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/java/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://haies.cn/git/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/avatar.jpg">
+      <meta itemprop="name" content="万术海">
+      <meta itemprop="description" content="个人知识库记载">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一本码簿">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/git/" class="post-title-link" itemprop="url">git</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-04-13 16:49:50" itemprop="dateCreated datePublished" datetime="2017-04-13T16:49:50+08:00">2017-04-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-07-16 17:22:54" itemprop="dateModified" datetime="2025-07-16T17:22:54+08:00">2025-07-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/learn/" itemprop="url" rel="index"><span itemprop="name">learn</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="生成密钥"><a href="#生成密钥" class="headerlink" title="生成密钥"></a>生成密钥</h2><blockquote>
+<p><strong>ssh-keygen -t rsa -C “<a href="mailto:username@email.com">username@email.com</a>”</strong></p>
+</blockquote>
+<h2 id="添加本地仓库到github"><a href="#添加本地仓库到github" class="headerlink" title="添加本地仓库到github"></a>添加本地仓库到github</h2><ol>
+<li>git init</li>
+<li>git remote add origin <a href="mailto:git@github.com">git@github.com</a>:bxxfighting/NowToDo.git</li>
+<li>git branch -u origin/master</li>
+<li>git pull</li>
+</ol>
+<h2 id="忽略已提交文件"><a href="#忽略已提交文件" class="headerlink" title="忽略已提交文件"></a>忽略已提交文件</h2><ol>
+<li>先用如下命令:  <code>git rm -r --cached filename</code></li>
+<li>再更新.gitignore文件忽略相关文件</li>
+</ol>
+<h2 id="创建git使用步骤"><a href="#创建git使用步骤" class="headerlink" title="创建git使用步骤"></a>创建git使用步骤</h2><ol>
+<li>生成ssh key： git bash下运行 <strong>ssh-keygen -t rsa -C”username”</strong>,然后三个回车，密码为空，上传用户文件夹下的公钥 <strong>id_rsa.pub</strong> 到服务器</li>
+<li>配置全局用户名 <strong>git config –global user.name “hai”</strong>、email <strong>git config –global user.email “<a href="mailto:username@email.com">username@email.com</a>“</strong></li>
+<li>配置cr、crlf转换 <strong>git config –global core.autocrlf input</strong></li>
+<li>配置safecrlf转换 <strong>git config –global core.safecrlf true</strong></li>
+<li>下载代码 <strong>git clone <a href="mailto:git@l.zjchey.com">git@l.zjchey.com</a>:code/NjqWeb.git</strong></li>
+<li>创建并切换分支 <strong>git checkout -b dev</strong></li>
+<li>建立当前本地分支dev和远程dev分支track <strong>git branch -u origin/dev</strong></li>
+<li>获取代码 <strong>git pull</strong>（相当向下箭头），提交代码 <strong>git add. git commit -m “message” git push</strong>（相当在vcs右键 commit changes）</li>
+</ol>
+<h2 id="git分支"><a href="#git分支" class="headerlink" title="git分支"></a>git分支</h2><ol>
+<li>创建分支 <strong>git branch &lt; branch_name &gt;</strong>,切换分支 <strong>git checkout &lt; branch_name &gt;</strong>,创建并切换分支 <strong>git checkout -b &lt; branch_name &gt;</strong></li>
+<li>显示本地分支 <strong>git branch</strong>,显示远程分支 <strong>git branch -r</strong>,显示本地和远程分支 <strong>git branch -a</strong></li>
+<li>获取远程分支 <strong>git pull origin &lt; branch_name &gt;</strong> 或者 <strong>git pull</strong></li>
+<li>推送到远程分支，<strong>git push origin &lt; local_branch_name &gt;:&lt; remote_branch_name &gt;</strong>,若本地分支和远程分支tracked，可简写为 <strong>git push</strong>,若 <strong>&lt; local_branch_name &gt;</strong> 为空，则删除远程分支</li>
+<li>获取远程新分支 <strong>git checkout -b &lt; local-branchname &gt; origin/ &lt; remote_branchname&gt;</strong></li>
+<li>删除本地分支 <strong>git branch -d &lt; branch_name &gt;</strong>,删除远程分支 <strong>git branch -d -r orign/&lt; branch_name &gt;</strong></li>
+<li>合并分支 <strong>git merge &lt; branch_name &gt;</strong></li>
+<li>建立当前本地分支dev和远程dev分支track <strong>git branch -u origin/dev</strong>，新建和远程dev分支tracked的本地分支 <strong>git branch –track dev origin/dev</strong></li>
+<li>查看本地分支和远程分支是否tracked <strong>git branch -vv</strong></li>
+<li>分支重命名 <strong>git branch -m oldbranch newbranch</strong></li>
+</ol>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/git/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://haies.cn/mybatis/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/avatar.jpg">
+      <meta itemprop="name" content="万术海">
+      <meta itemprop="description" content="个人知识库记载">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一本码簿">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/mybatis/" class="post-title-link" itemprop="url">Mybatis</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-03-23 15:34:50" itemprop="dateCreated datePublished" datetime="2017-03-23T15:34:50+08:00">2017-03-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-07-14 16:29:58" itemprop="dateModified" datetime="2025-07-14T16:29:58+08:00">2025-07-14</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/code/" itemprop="url" rel="index"><span itemprop="name">code</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="insert返回主键"><a href="#insert返回主键" class="headerlink" title="insert返回主键"></a>insert返回主键</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">insert</span> <span class="attr">id</span>=<span class="string">"insertSelective"</span> <span class="attr">parameterType</span>=<span class="string">"com.web.quickwork.entity.UserProject"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">useGeneratedKeys</span>=<span class="string">"true"</span> <span class="attr">keyProperty</span>=<span class="string">"id"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">insert</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">insert</span> <span class="attr">id</span>=<span class="string">"insertSelective"</span> <span class="attr">parameterType</span>=<span class="string">"com.zjchey.xxfy.geoCity.entity.Report"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">selectKey</span> <span class="attr">keyProperty</span>=<span class="string">"uid"</span> <span class="attr">order</span>=<span class="string">"BEFORE"</span> <span class="attr">resultType</span>=<span class="string">"java.lang.Object"</span>&gt;</span></span><br><span class="line">    SELECT uuid_generate_v4()</span><br><span class="line">  <span class="tag">&lt;/<span class="name">selectKey</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">insert</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">insert</span> <span class="attr">id</span>=<span class="string">"insertSelective"</span> <span class="attr">parameterType</span>=<span class="string">"com.web.quickwork.entity.UserProject"</span> &gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">selectKey</span> <span class="attr">resultType</span>=<span class="string">"long"</span> <span class="attr">order</span>=<span class="string">"AFTER"</span> <span class="attr">keyProperty</span>=<span class="string">"id"</span>&gt;</span></span><br><span class="line">    SELECT MAX (ID) FROM USERPROJECT</span><br><span class="line">  <span class="tag">&lt;/<span class="name">selectKey</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">insert</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/mybatis/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="万术海"
+      src="/assets/avatar.jpg">
+  <p class="site-author-name" itemprop="name">万术海</p>
+  <div class="site-description" itemprop="description">个人知识库记载</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/haies" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;haies" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/imkv" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;imkv" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/assets/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+  <div class="beian"><a href="https://beian.miit.gov.cn/" rel="noopener" target="_blank">浙ICP备15009661号 </a>
+      <img src="/assets/beian.png" style="display: inline-block;"><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010602002478" rel="noopener" target="_blank">浙公网安备33010602002478号 </a>
+  </div>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">万术海</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
