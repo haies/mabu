@@ -11,7 +11,7 @@ deb-src https://mirrors.aliyun.com/ubuntu/ `lsb_release -cs`-updates main restri
 #deb-src https://mirrors.aliyun.com/ubuntu/ `lsb_release -cs`-proposed main restricted universe multiverse
 deb-src https://mirrors.aliyun.com/ubuntu/ `lsb_release -cs`-backports main restricted universe multiverse
 EOF
-sh -c "$(wget -qO- http://haies.cn/assets/apt-install.sh)"
+sh -c "$(wget -qO- https://haies.cn/assets/apt-install.sh)"
 # sed -i '0,/plugins=(git)/s/plugins=(git)/plugins=(git z tmux)/' .zshrc&&
 # source .zshrc
 # curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash - &&

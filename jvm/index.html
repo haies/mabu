@@ -20,24 +20,24 @@
     var CONFIG = {"hostname":"haies.cn","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
   </script>
 
-  <meta name="description" content="JDK、JRE与JVM的区别JDK是开发的环境依赖，JRE是程序运行环境依赖，JVM（Java虚拟机）是开发调试运行和程序运行的依赖，三者是套娃结构，JDK包含JRE，JRE包含JVM。  JRE（Java Runtime Environment），提供了一个60M基础类库lib&#x2F;rt.jar，该库包括常用到的String、集合、网络、多线程等常用类。JRE还提供了不同平台下的JVM。生产环境下的">
+  <meta name="description" content="JDK是开发的环境依赖，JRE是程序运行环境依赖，JVM（Java虚拟机）是开发调试运行和程序运行的依赖，三者是套娃结构，JDK包含JRE，JRE包含JVM。  JRE（Java Runtime Environment），提供了一个60M基础类库lib&#x2F;rt.jar，该库包括常用到的String、集合、网络、多线程等常用类。JRE还提供了不同平台下的JVM。生产环境下的Java程序的运行只需要编译">
 <meta property="og:type" content="article">
-<meta property="og:title" content="jvm">
-<meta property="og:url" content="http://haies.cn/jvm/index.html">
+<meta property="og:title" content="JDK、JRE与JVM的区别">
+<meta property="og:url" content="https://haies.cn/jvm/index.html">
 <meta property="og:site_name" content="一本码簿">
-<meta property="og:description" content="JDK、JRE与JVM的区别JDK是开发的环境依赖，JRE是程序运行环境依赖，JVM（Java虚拟机）是开发调试运行和程序运行的依赖，三者是套娃结构，JDK包含JRE，JRE包含JVM。  JRE（Java Runtime Environment），提供了一个60M基础类库lib&#x2F;rt.jar，该库包括常用到的String、集合、网络、多线程等常用类。JRE还提供了不同平台下的JVM。生产环境下的">
+<meta property="og:description" content="JDK是开发的环境依赖，JRE是程序运行环境依赖，JVM（Java虚拟机）是开发调试运行和程序运行的依赖，三者是套娃结构，JDK包含JRE，JRE包含JVM。  JRE（Java Runtime Environment），提供了一个60M基础类库lib&#x2F;rt.jar，该库包括常用到的String、集合、网络、多线程等常用类。JRE还提供了不同平台下的JVM。生产环境下的Java程序的运行只需要编译">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://haies.cn/assets/jvm.png">
-<meta property="og:image" content="http://haies.cn/assets/JVMArchitecture.png">
-<meta property="og:image" content="http://haies.cn/assets/java-memory-management.jpg">
+<meta property="og:image" content="https://haies.cn/assets/jvm.png">
+<meta property="og:image" content="https://haies.cn/assets/JVMArchitecture.png">
+<meta property="og:image" content="https://haies.cn/assets/java-memory-management.jpg">
 <meta property="article:published_time" content="2020-03-12T00:40:53.000Z">
-<meta property="article:modified_time" content="2025-07-16T09:22:54.880Z">
+<meta property="article:modified_time" content="2025-12-04T00:46:50.359Z">
 <meta property="article:author" content="万术海">
 <meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://haies.cn/assets/jvm.png">
+<meta name="twitter:image" content="https://haies.cn/assets/jvm.png">
 
-<link rel="canonical" href="http://haies.cn/jvm/">
+<link rel="canonical" href="https://haies.cn/jvm/">
 
 
 <script id="page-configurations">
@@ -50,7 +50,7 @@
   };
 </script>
 
-  <title>jvm | 一本码簿</title>
+  <title>JDK、JRE与JVM的区别 | 一本码簿</title>
   
 
 
@@ -194,7 +194,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://haies.cn/jvm/">
+    <link itemprop="mainEntityOfPage" href="https://haies.cn/jvm/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/avatar.jpg">
@@ -207,7 +207,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          jvm
+          JDK、JRE与JVM的区别
         </h1>
 
         <div class="post-meta">
@@ -224,7 +224,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-07-16 17:22:54" itemprop="dateModified" datetime="2025-07-16T17:22:54+08:00">2025-07-16</time>
+                <time title="修改时间：2025-12-04 08:46:50" itemprop="dateModified" datetime="2025-12-04T08:46:50+08:00">2025-12-04</time>
               </span>
 
           
@@ -238,7 +238,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="JDK、JRE与JVM的区别"><a href="#JDK、JRE与JVM的区别" class="headerlink" title="JDK、JRE与JVM的区别"></a>JDK、JRE与JVM的区别</h2><p><code>JDK</code>是开发的环境依赖，<code>JRE</code>是程序运行环境依赖，<code>JVM</code>（Java虚拟机）是开发调试运行和程序运行的依赖，三者是套娃结构，JDK包含JRE，JRE包含JVM。</p>
+        <p><code>JDK</code>是开发的环境依赖，<code>JRE</code>是程序运行环境依赖，<code>JVM</code>（Java虚拟机）是开发调试运行和程序运行的依赖，三者是套娃结构，JDK包含JRE，JRE包含JVM。</p>
 <ul>
 <li><code>JRE</code>（Java Runtime Environment），提供了一个60M基础类库<code>lib/rt.jar</code>，该库包括常用到的String、集合、网络、多线程等常用类。JRE还提供了不同平台下的JVM。生产环境下的Java程序的运行只需要编译后的字节码+JRE即可。</li>
 <li><code>JDK</code>（Java Development Kit），比JRE多了一些位于<code>lib</code>文件夹下的开发类库，如<code>dt.jar</code>、<code>tools.jar</code>，JDK同时也提供了位于<code>bin</code>文件夹下的开发工具，如<code>java.exe</code>、<code>javac.exe</code>和<code>jvisualvm.exe</code>。</li>
@@ -356,7 +356,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#JDK、JRE与JVM的区别"><span class="nav-number">1.</span> <span class="nav-text">JDK、JRE与JVM的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JVM"><span class="nav-number">2.</span> <span class="nav-text">JVM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行时数据区"><span class="nav-number">3.</span> <span class="nav-text">运行时数据区</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-堆内存"><span class="nav-number">4.</span> <span class="nav-text">Java 堆内存</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#JVM"><span class="nav-number">1.</span> <span class="nav-text">JVM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行时数据区"><span class="nav-number">2.</span> <span class="nav-text">运行时数据区</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-堆内存"><span class="nav-number">3.</span> <span class="nav-text">Java 堆内存</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -372,7 +372,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-count">24</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -384,7 +384,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

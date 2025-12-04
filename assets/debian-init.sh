@@ -11,7 +11,7 @@ deb-src https://mirrors.aliyun.com/debian-security/ `env -i bash -c '. /etc/os-r
 EOF
 echo "Changed sources.list to mirrors.aliyun.com";
 
-sh -c "$(wget -qO- http://haies.cn/assets/apt-install.sh)"
+sh -c "$(wget -qO- https://haies.cn/assets/apt-install.sh)"
 # sed -i '0,/plugins=(git)/s/plugins=(git)/plugins=(git z tmux docker)/' .zshrc&&
 # source .zshrc
 # curl -sL https://deb.nodesource.com/setup_12.x | bash -&&

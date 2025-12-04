@@ -8,7 +8,7 @@ sudo yum-config-manager \
     https://download.docker.com/linux/centos/docker-ce.repo&&
 sudo yum -y install docker-ce&&
 sudo mkdir /etc/docker&&
-wget http://haies.cn/assets/daemon.json -O /etc/docker/daemon.json&&
+wget https://haies.cn/assets/daemon.json -O /etc/docker/daemon.json&&
 sudo systemctl start docker&&
 sudo systemctl enable docker&&
 sudo curl -L https://get.daocloud.io/docker/compose/releases/download/1.25.4/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose&&

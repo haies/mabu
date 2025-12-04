@@ -1,7 +1,7 @@
 sudo apt-get update ;
 sudo apt-get install -y  git zsh ;
 
-echo y | sh -c "$(wget -qO- http://haies.cn/assets/install-zsh.sh)" &&
+echo y | sh -c "$(wget -qO- https://haies.cn/assets/install-zsh.sh)" &&
 echo "Installed oh-my-zsh" &&
 
 sed -i '0,/plugins=(git)/s/plugins=(git)/plugins=(git z tmux)/' .zshrc&&

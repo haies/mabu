@@ -23,7 +23,7 @@
   <meta name="description" content="个人知识库记载">
 <meta property="og:type" content="website">
 <meta property="og:title" content="一本码簿">
-<meta property="og:url" content="http://haies.cn/index.html">
+<meta property="og:url" content="https://haies.cn/index.html">
 <meta property="og:site_name" content="一本码簿">
 <meta property="og:description" content="个人知识库记载">
 <meta property="og:locale" content="zh_CN">
@@ -31,7 +31,7 @@
 <meta property="article:tag" content="haies">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://haies.cn/">
+<link rel="canonical" href="https://haies.cn/">
 
 
 <script id="page-configurations">
@@ -187,7 +187,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://haies.cn/kvm/">
+    <link itemprop="mainEntityOfPage" href="https://haies.cn/uos/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/avatar.jpg">
@@ -201,7 +201,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/kvm/" class="post-title-link" itemprop="url">kvm</a>
+            <a href="/uos/" class="post-title-link" itemprop="url">uos</a>
         </h2>
 
         <div class="post-meta">
@@ -212,7 +212,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2025-11-25 08:28:20 / 修改时间：09:30:13" itemprop="dateCreated datePublished" datetime="2025-11-25T08:28:20+08:00">2025-11-25</time>
+              <time title="创建时间：2025-12-04 09:45:39 / 修改时间：09:45:58" itemprop="dateCreated datePublished" datetime="2025-12-04T09:45:39+08:00">2025-12-04</time>
             </span>
 
           
@@ -226,8 +226,71 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>在UOS V20 1070（内核4.19）上为Windows 10虚拟机配置基于VirtioFS的文件共享，确实需要一些细致的操作。下面这份教程将引导你完成主要组件的编译安装和配置。</p>
-<h2 id="🎯-UOS下的KVM编译安装"><a href="#🎯-UOS下的KVM编译安装" class="headerlink" title="🎯 UOS下的KVM编译安装"></a>🎯 UOS下的KVM编译安装</h2><p>本教程实现在 <strong>UOS V20 1070 (内核4.19)</strong> 系统上，通过编译安装 <strong>QEMU 7.2.21</strong>、<strong>libvirt 8.0.0</strong> 和 <strong>virt-manager 5.1.0</strong>，实现主机 (Host) UOS 与客户机 (Guest) Windows 10 之间基于 <strong>VirtioFS</strong> 驱动的高效文件共享。</p>
+          
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://haies.cn/kvm/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/assets/avatar.jpg">
+      <meta itemprop="name" content="万术海">
+      <meta itemprop="description" content="个人知识库记载">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一本码簿">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/kvm/" class="post-title-link" itemprop="url">UOS下的KVM编译安装</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2025-11-25 08:28:20" itemprop="dateCreated datePublished" datetime="2025-11-25T08:28:20+08:00">2025-11-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-12-04 09:46:17" itemprop="dateModified" datetime="2025-12-04T09:46:17+08:00">2025-12-04</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>本教程实现在 <strong>UOS V20 1070 (内核4.19)</strong> 系统上，通过编译安装 <strong>QEMU 7.2.21</strong>、<strong>libvirt 8.0.0</strong> 和 <strong>virt-manager 5.1.0</strong>，实现主机 (Host) UOS 与客户机 (Guest) Windows 10 之间基于 <strong>VirtioFS</strong> 驱动的高效文件共享。</p>
 <p>选择此版本组合主要是因为：</p>
 <ul>
 <li><strong>QEMU 7.2.21</strong> 是最后一个完整支持 <strong>C语言版本 virtiofsd</strong> 的QEMU稳定版。</li>
@@ -247,7 +310,8 @@
 
 </li>
 </ol>
-<h2 id="🔧-组件编译与安装"><a href="#🔧-组件编译与安装" class="headerlink" title="🔧 组件编译与安装"></a>🔧 组件编译与安装</h2>
+<h2 id="🔧-组件编译与安装"><a href="#🔧-组件编译与安装" class="headerlink" title="🔧 组件编译与安装"></a>🔧 组件编译与安装</h2><p>现在，开始编译和安装三个核心组件。</p>
+<h3 id="1-编译安装-QEMU-7-2-21"><a href="#1-编译安装-QEMU-7-2-21" class="headerlink" title="1. 编译安装 QEMU 7.2.21"></a>1. 编译安装 QEMU 7.2.21</h3>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/kvm/#more" rel="contents">
@@ -274,7 +338,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://haies.cn/mac/">
+    <link itemprop="mainEntityOfPage" href="https://haies.cn/mac/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/avatar.jpg">
@@ -305,8 +369,17 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-08-15 14:37:14" itemprop="dateModified" datetime="2025-08-15T14:37:14+08:00">2025-08-15</time>
+                <time title="修改时间：2025-11-27 11:47:43" itemprop="dateModified" datetime="2025-11-27T11:47:43+08:00">2025-11-27</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/utils/" itemprop="url" rel="index"><span itemprop="name">utils</span></a>
+                </span>
+            </span>
 
           
 
@@ -319,7 +392,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="hombrew"><a href="#hombrew" class="headerlink" title="hombrew"></a>hombrew</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">sh -c <span class="string">"<span class="variable">$(curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)</span>"</span>;</span><br><span class="line">sh -c <span class="string">"<span class="variable">$(curl -fsSL http://haies.cn/assets/install-zsh.sh)</span>"</span>;</span><br><span class="line"></span><br><span class="line">brew install tmux;</span><br><span class="line">brew install nmap;</span><br><span class="line">brew install wget;</span><br><span class="line">brew install ffmpeg;</span><br><span class="line">brew install p7zip;</span><br><span class="line"></span><br><span class="line">brew install iina；</span><br><span class="line">brew install obsidian;</span><br><span class="line">brew install bilibili;</span><br><span class="line">brew install pixpin;</span><br><span class="line">brew install stats;</span><br><span class="line">brew install iterm2；</span><br><span class="line">brew install appcleaner；</span><br><span class="line">brew install clash-verge-rev;</span><br><span class="line">brew install firefox；</span><br><span class="line">brew install google-chrome；</span><br><span class="line">brew install microsoft-edge；</span><br><span class="line">brew install visual-studio-code;</span><br><span class="line">brew install microsoft-remote-desktop;</span><br><span class="line"></span><br><span class="line">brew tap gromgit/homebrew-fuse；</span><br><span class="line">brew install mounty；</span><br><span class="line">brew install macfuse;</span><br><span class="line">brew install ntfs-3g-mac;</span><br><span class="line"></span><br><span class="line">brew install node@22;</span><br><span class="line">brew unlink node@22 &gt;/dev/null;</span><br><span class="line">brew link --overwrite --force node@22;</span><br><span class="line">npm i -g hexo-cli;</span><br><span class="line"></span><br><span class="line">brew install qq；</span><br><span class="line">brew install wechat；</span><br><span class="line">brew install dingtalk</span><br><span class="line">brew install wpsoffice-cn;</span><br><span class="line"></span><br><span class="line">brew --cache</span><br><span class="line">brew list node</span><br><span class="line">brew --prefix node</span><br><span class="line"></span><br><span class="line">launchctl unload ~/Library/LaunchAgents/文件名.plist</span><br><span class="line">rm ~/Library/LaunchAgents/文件名.plist</span><br><span class="line">sudo launchctl unload /Library/LaunchDaemons/文件名.plist</span><br><span class="line">sudo rm /Library/LaunchDaemons/文件名.plist</span><br></pre></td></tr></table></figure>
+          <h2 id="hombrew"><a href="#hombrew" class="headerlink" title="hombrew"></a>hombrew</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">sh -c <span class="string">"<span class="variable">$(curl -fsSL https://gitee.com/cunkai/HomebrewCN/raw/master/Homebrew.sh)</span>"</span>;</span><br><span class="line">sh -c <span class="string">"<span class="variable">$(curl -fsSL https://haies.cn/assets/install-zsh.sh)</span>"</span>;</span><br><span class="line"></span><br><span class="line">brew install tmux;</span><br><span class="line">brew install nmap;</span><br><span class="line">brew install wget;</span><br><span class="line">brew install ffmpeg;</span><br><span class="line">brew install p7zip;</span><br><span class="line"></span><br><span class="line">brew install iina；</span><br><span class="line">brew install obsidian;</span><br><span class="line">brew install bilibili;</span><br><span class="line">brew install pixpin;</span><br><span class="line">brew install stats;</span><br><span class="line">brew install iterm2；</span><br><span class="line">brew install appcleaner；</span><br><span class="line">brew install clash-verge-rev;</span><br><span class="line">brew install firefox；</span><br><span class="line">brew install google-chrome；</span><br><span class="line">brew install microsoft-edge；</span><br><span class="line">brew install visual-studio-code;</span><br><span class="line">brew install microsoft-remote-desktop;</span><br><span class="line"></span><br><span class="line">brew tap gromgit/homebrew-fuse；</span><br><span class="line">brew install mounty；</span><br><span class="line">brew install macfuse;</span><br><span class="line">brew install ntfs-3g-mac;</span><br><span class="line"></span><br><span class="line">brew install node@22;</span><br><span class="line">brew unlink node@22 &gt;/dev/null;</span><br><span class="line">brew link --overwrite --force node@22;</span><br><span class="line">npm i -g hexo-cli;</span><br><span class="line"></span><br><span class="line">brew install qq；</span><br><span class="line">brew install wechat；</span><br><span class="line">brew install dingtalk</span><br><span class="line">brew install wpsoffice-cn;</span><br><span class="line"></span><br><span class="line">brew --cache</span><br><span class="line">brew list node</span><br><span class="line">brew --prefix node</span><br><span class="line"></span><br><span class="line">launchctl unload ~/Library/LaunchAgents/文件名.plist</span><br><span class="line">rm ~/Library/LaunchAgents/文件名.plist</span><br><span class="line">sudo launchctl unload /Library/LaunchDaemons/文件名.plist</span><br><span class="line">sudo rm /Library/LaunchDaemons/文件名.plist</span><br></pre></td></tr></table></figure>
 
           <!--noindex-->
             <div class="post-button">
@@ -347,7 +420,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://haies.cn/jvm/">
+    <link itemprop="mainEntityOfPage" href="https://haies.cn/jvm/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/avatar.jpg">
@@ -361,7 +434,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/jvm/" class="post-title-link" itemprop="url">jvm</a>
+            <a href="/jvm/" class="post-title-link" itemprop="url">JDK、JRE与JVM的区别</a>
         </h2>
 
         <div class="post-meta">
@@ -378,7 +451,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-07-16 17:22:54" itemprop="dateModified" datetime="2025-07-16T17:22:54+08:00">2025-07-16</time>
+                <time title="修改时间：2025-12-04 08:46:50" itemprop="dateModified" datetime="2025-12-04T08:46:50+08:00">2025-12-04</time>
               </span>
 
           
@@ -392,7 +465,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="JDK、JRE与JVM的区别"><a href="#JDK、JRE与JVM的区别" class="headerlink" title="JDK、JRE与JVM的区别"></a>JDK、JRE与JVM的区别</h2><p><code>JDK</code>是开发的环境依赖，<code>JRE</code>是程序运行环境依赖，<code>JVM</code>（Java虚拟机）是开发调试运行和程序运行的依赖，三者是套娃结构，JDK包含JRE，JRE包含JVM。</p>
+          <p><code>JDK</code>是开发的环境依赖，<code>JRE</code>是程序运行环境依赖，<code>JVM</code>（Java虚拟机）是开发调试运行和程序运行的依赖，三者是套娃结构，JDK包含JRE，JRE包含JVM。</p>
 <ul>
 <li><code>JRE</code>（Java Runtime Environment），提供了一个60M基础类库<code>lib/rt.jar</code>，该库包括常用到的String、集合、网络、多线程等常用类。JRE还提供了不同平台下的JVM。生产环境下的Java程序的运行只需要编译后的字节码+JRE即可。</li>
 <li><code>JDK</code>（Java Development Kit），比JRE多了一些位于<code>lib</code>文件夹下的开发类库，如<code>dt.jar</code>、<code>tools.jar</code>，JDK同时也提供了位于<code>bin</code>文件夹下的开发工具，如<code>java.exe</code>、<code>javac.exe</code>和<code>jvisualvm.exe</code>。</li>
@@ -410,6 +483,7 @@
 <blockquote>
 <p>Java7之前，方法区位于永久代(PermGen)，永久代和堆相互隔离，永久代的大小在启动JVM时可以设置一个固定值，不可变；Java7中，字符串常量池从永久代移到堆中； Java8中，取消永久代，方法区存放于元空间(Metaspace)，元空间仍然与堆不相连。</p>
 </blockquote>
+<h2 id="Java-堆内存"><a href="#Java-堆内存" class="headerlink" title="Java 堆内存"></a>Java 堆内存</h2>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/jvm/#more" rel="contents">
@@ -436,7 +510,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://haies.cn/dev/">
+    <link itemprop="mainEntityOfPage" href="https://haies.cn/dev/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/avatar.jpg">
@@ -467,8 +541,17 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-07-14 16:29:58" itemprop="dateModified" datetime="2025-07-14T16:29:58+08:00">2025-07-14</time>
+                <time title="修改时间：2025-11-27 11:54:09" itemprop="dateModified" datetime="2025-11-27T11:54:09+08:00">2025-11-27</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/dev/" itemprop="url" rel="index"><span itemprop="name">dev</span></a>
+                </span>
+            </span>
 
           
 
@@ -623,7 +706,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://haies.cn/docker/">
+    <link itemprop="mainEntityOfPage" href="https://haies.cn/docker/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/avatar.jpg">
@@ -711,7 +794,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://haies.cn/excel/">
+    <link itemprop="mainEntityOfPage" href="https://haies.cn/excel/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/avatar.jpg">
@@ -794,7 +877,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://haies.cn/frontend/">
+    <link itemprop="mainEntityOfPage" href="https://haies.cn/frontend/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/avatar.jpg">
@@ -879,7 +962,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://haies.cn/db/">
+    <link itemprop="mainEntityOfPage" href="https://haies.cn/db/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/avatar.jpg">
@@ -893,7 +976,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/db/" class="post-title-link" itemprop="url">db</a>
+            <a href="/db/" class="post-title-link" itemprop="url">数据库设计</a>
         </h2>
 
         <div class="post-meta">
@@ -910,8 +993,17 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-07-16 17:22:54" itemprop="dateModified" datetime="2025-07-16T17:22:54+08:00">2025-07-16</time>
+                <time title="修改时间：2025-11-27 11:54:29" itemprop="dateModified" datetime="2025-11-27T11:54:29+08:00">2025-11-27</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/dev/" itemprop="url" rel="index"><span itemprop="name">dev</span></a>
+                </span>
+            </span>
 
           
 
@@ -957,7 +1049,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://haies.cn/js/">
+    <link itemprop="mainEntityOfPage" href="https://haies.cn/js/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/avatar.jpg">
@@ -1015,105 +1107,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/js/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://haies.cn/ls/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/assets/avatar.jpg">
-      <meta itemprop="name" content="万术海">
-      <meta itemprop="description" content="个人知识库记载">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="一本码簿">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/ls/" class="post-title-link" itemprop="url">ls</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2018-09-20 09:16:33" itemprop="dateCreated datePublished" datetime="2018-09-20T09:16:33+08:00">2018-09-20</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-07-14 16:29:58" itemprop="dateModified" datetime="2025-07-14T16:29:58+08:00">2025-07-14</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="idea"><a href="#idea" class="headerlink" title="idea"></a>idea</h2><ul>
-<li><code>Ctrl+F12</code>或<code>Alt+7</code> 文件结构</li>
-<li><code>Ctrl+Shift+E</code> 最近更改的文件</li>
-<li><code>Ctrl+Alt+B</code> 跳转到方法实现处</li>
-<li><code>Ctrl+”=/-”</code> 当前方法展开、折叠</li>
-<li><code>Ctrl+Shift+”=/-”</code> 全部展开、折叠</li>
-<li><code>Shift+F8</code> 步出</li>
-<li><code>Alt+F9</code> 运行至光标处</li>
-<li><code>Alt+2</code> 收藏</li>
-</ul>
-<h2 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h2><ul>
-<li>查看一级目录大小：<code>du -hd 1</code></li>
-</ul>
-<h2 id="tumx"><a href="#tumx" class="headerlink" title="tumx"></a>tumx</h2><ul>
-<li><code>ta</code> 打开一个窗口</li>
-<li><code>ts</code> 创建一个窗口</li>
-<li><code>tl</code> 列出窗口</li>
-<li><code>tkss</code> 杀死一个窗口</li>
-<li><code>tks</code> 杀死全部</li>
-</ul>
-<h2 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h2><ul>
-<li><code>/search_string\c</code> 向下查找</li>
-<li><code>?</code> 向上查找</li>
-<li><code>:%s/foo/bar/gic</code> 全局范围<code>%</code>查找foo并替换为bar，全局替换<code>g</code>,大小写敏感<code>i</code>，确认 <code>c</code>。</li>
-</ul>
-<h2 id="nginx"><a href="#nginx" class="headerlink" title="nginx"></a>nginx</h2><ul>
-<li><code>nginx -V</code> 查看详细信息（模块）</li>
-</ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/ls/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1204,7 +1197,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-count">24</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1216,7 +1209,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

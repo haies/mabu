@@ -20,20 +20,20 @@
     var CONFIG = {"hostname":"haies.cn","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
   </script>
 
-  <meta name="description" content="在UOS V20 1070（内核4.19）上为Windows 10虚拟机配置基于VirtioFS的文件共享，确实需要一些细致的操作。下面这份教程将引导你完成主要组件的编译安装和配置。 🎯 UOS下的KVM编译安装本教程实现在 UOS V20 1070 (内核4.19) 系统上，通过编译安装 QEMU 7.2.21、libvirt 8.0.0 和 virt-manager 5.1.0，实现主机 (">
+  <meta name="description" content="本教程实现在 UOS V20 1070 (内核4.19) 系统上，通过编译安装 QEMU 7.2.21、libvirt 8.0.0 和 virt-manager 5.1.0，实现主机 (Host) UOS 与客户机 (Guest) Windows 10 之间基于 VirtioFS 驱动的高效文件共享。 选择此版本组合主要是因为：  QEMU 7.2.21 是最后一个完整支持 C语言版本 virti">
 <meta property="og:type" content="article">
-<meta property="og:title" content="kvm">
-<meta property="og:url" content="http://haies.cn/kvm/index.html">
+<meta property="og:title" content="UOS下的KVM编译安装">
+<meta property="og:url" content="https://haies.cn/kvm/index.html">
 <meta property="og:site_name" content="一本码簿">
-<meta property="og:description" content="在UOS V20 1070（内核4.19）上为Windows 10虚拟机配置基于VirtioFS的文件共享，确实需要一些细致的操作。下面这份教程将引导你完成主要组件的编译安装和配置。 🎯 UOS下的KVM编译安装本教程实现在 UOS V20 1070 (内核4.19) 系统上，通过编译安装 QEMU 7.2.21、libvirt 8.0.0 和 virt-manager 5.1.0，实现主机 (">
+<meta property="og:description" content="本教程实现在 UOS V20 1070 (内核4.19) 系统上，通过编译安装 QEMU 7.2.21、libvirt 8.0.0 和 virt-manager 5.1.0，实现主机 (Host) UOS 与客户机 (Guest) Windows 10 之间基于 VirtioFS 驱动的高效文件共享。 选择此版本组合主要是因为：  QEMU 7.2.21 是最后一个完整支持 C语言版本 virti">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-11-25T00:28:20.000Z">
-<meta property="article:modified_time" content="2025-11-25T01:30:13.729Z">
+<meta property="article:modified_time" content="2025-12-04T01:46:17.010Z">
 <meta property="article:author" content="万术海">
-<meta property="article:tag" content="os">
+<meta property="article:tag" content="os,uos,kvm">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://haies.cn/kvm/">
+<link rel="canonical" href="https://haies.cn/kvm/">
 
 
 <script id="page-configurations">
@@ -46,7 +46,7 @@
   };
 </script>
 
-  <title>kvm | 一本码簿</title>
+  <title>UOS下的KVM编译安装 | 一本码簿</title>
   
 
 
@@ -190,7 +190,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://haies.cn/kvm/">
+    <link itemprop="mainEntityOfPage" href="https://haies.cn/kvm/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/assets/avatar.jpg">
@@ -203,7 +203,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          kvm
+          UOS下的KVM编译安装
         </h1>
 
         <div class="post-meta">
@@ -212,10 +212,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2025-11-25 08:28:20 / 修改时间：09:30:13" itemprop="dateCreated datePublished" datetime="2025-11-25T08:28:20+08:00">2025-11-25</time>
+              <time title="创建时间：2025-11-25 08:28:20" itemprop="dateCreated datePublished" datetime="2025-11-25T08:28:20+08:00">2025-11-25</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-12-04 09:46:17" itemprop="dateModified" datetime="2025-12-04T09:46:17+08:00">2025-12-04</time>
+              </span>
 
           
 
@@ -228,8 +234,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>在UOS V20 1070（内核4.19）上为Windows 10虚拟机配置基于VirtioFS的文件共享，确实需要一些细致的操作。下面这份教程将引导你完成主要组件的编译安装和配置。</p>
-<h2 id="🎯-UOS下的KVM编译安装"><a href="#🎯-UOS下的KVM编译安装" class="headerlink" title="🎯 UOS下的KVM编译安装"></a>🎯 UOS下的KVM编译安装</h2><p>本教程实现在 <strong>UOS V20 1070 (内核4.19)</strong> 系统上，通过编译安装 <strong>QEMU 7.2.21</strong>、<strong>libvirt 8.0.0</strong> 和 <strong>virt-manager 5.1.0</strong>，实现主机 (Host) UOS 与客户机 (Guest) Windows 10 之间基于 <strong>VirtioFS</strong> 驱动的高效文件共享。</p>
+        <p>本教程实现在 <strong>UOS V20 1070 (内核4.19)</strong> 系统上，通过编译安装 <strong>QEMU 7.2.21</strong>、<strong>libvirt 8.0.0</strong> 和 <strong>virt-manager 5.1.0</strong>，实现主机 (Host) UOS 与客户机 (Guest) Windows 10 之间基于 <strong>VirtioFS</strong> 驱动的高效文件共享。</p>
 <p>选择此版本组合主要是因为：</p>
 <ul>
 <li><strong>QEMU 7.2.21</strong> 是最后一个完整支持 <strong>C语言版本 virtiofsd</strong> 的QEMU稳定版。</li>
@@ -331,7 +336,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/os/" rel="tag"># os</a>
+              <a href="/tags/os-uos-kvm/" rel="tag"># os,uos,kvm</a>
           </div>
 
         
@@ -343,7 +348,10 @@
     <a href="/mac/" rel="prev" title="mac">
       <i class="fa fa-chevron-left"></i> mac
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/uos/" rel="next" title="uos">
+      uos <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -402,7 +410,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#🎯-UOS下的KVM编译安装"><span class="nav-number">1.</span> <span class="nav-text">🎯 UOS下的KVM编译安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#📦-前期准备：环境与依赖"><span class="nav-number">2.</span> <span class="nav-text">📦 前期准备：环境与依赖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🔧-组件编译与安装"><span class="nav-number">3.</span> <span class="nav-text">🔧 组件编译与安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-编译安装-QEMU-7-2-21"><span class="nav-number">3.1.</span> <span class="nav-text">1. 编译安装 QEMU 7.2.21</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-编译安装-libvirt-8-0-0"><span class="nav-number">3.2.</span> <span class="nav-text">2. 编译安装 libvirt 8.0.0</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-编译安装-virt-manager-5-1-0"><span class="nav-number">3.3.</span> <span class="nav-text">3. 编译安装 virt-manager 5.1.0</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#⚙️-配置VirtioFS文件共享"><span class="nav-number">4.</span> <span class="nav-text">⚙️ 配置VirtioFS文件共享</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#💡-故障排除小贴士"><span class="nav-number">5.</span> <span class="nav-text">💡 故障排除小贴士</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#📦-前期准备：环境与依赖"><span class="nav-number">1.</span> <span class="nav-text">📦 前期准备：环境与依赖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#🔧-组件编译与安装"><span class="nav-number">2.</span> <span class="nav-text">🔧 组件编译与安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-编译安装-QEMU-7-2-21"><span class="nav-number">2.1.</span> <span class="nav-text">1. 编译安装 QEMU 7.2.21</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-编译安装-libvirt-8-0-0"><span class="nav-number">2.2.</span> <span class="nav-text">2. 编译安装 libvirt 8.0.0</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-编译安装-virt-manager-5-1-0"><span class="nav-number">2.3.</span> <span class="nav-text">3. 编译安装 virt-manager 5.1.0</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#⚙️-配置VirtioFS文件共享"><span class="nav-number">3.</span> <span class="nav-text">⚙️ 配置VirtioFS文件共享</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#💡-故障排除小贴士"><span class="nav-number">4.</span> <span class="nav-text">💡 故障排除小贴士</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -418,7 +426,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-count">24</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -430,7 +438,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
